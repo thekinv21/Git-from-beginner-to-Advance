@@ -1,3 +1,5 @@
+import { ApplicationProvider } from '@/provider/ApplicationProvider'
+
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import '../style/globals.scss'
@@ -19,7 +21,9 @@ interface IRootLayoutProps {
 export default function RootLayout({ children }: Readonly<IRootLayoutProps>) {
 	return (
 		<html lang='en'>
-			<body className={monserrat.className}>{children}</body>
+			<body className={monserrat.className}>
+				<ApplicationProvider>{children}</ApplicationProvider>
+			</body>
 		</html>
 	)
 }
